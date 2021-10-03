@@ -1,0 +1,14 @@
+@startuml
+skinparam class {
+	BackgroundColor White
+	ArrowColor Black
+	BorderColor Black
+}
+class "Повар" as P {
+ Кастрюля
+ Плита
+ Тёрка
+Приготовить макароны с сыром ((макароны, вода, сыр), рецепт)
+}
+hide circle
+@enduml
