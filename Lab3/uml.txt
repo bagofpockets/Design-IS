@@ -1,0 +1,23 @@
+@startuml
+skinparam actor {
+	BackgroundColor White
+	ArrowColor Black
+	BorderColor Black
+}
+autonumber
+
+actor "Сотрудник" as user
+boundary "Система управления складом" as app
+control "Форма товаров" as form
+entity "Данные" as data
+
+user -> app: Ввести заказ на товар
+
+app -> form: Введение данных в соотвествующую форму
+form -> data: Внесение данных в СУБД
+data --> form: Транзакция завершилась успешно
+
+form --> app: Отобразить результат добавления
+
+app --> user: Подтверждение операции
+@enduml
