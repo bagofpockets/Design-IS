@@ -1,0 +1,30 @@
+@startuml
+skinparam monochrome true
+hide circle
+hide methods
+left to right direction
+skinparam packageStyle rectangle
+
+actor "Пользователь_системы"
+actor "Модуль_скрейпера" 
+actor "Модуль_скедулера" 
+actor "Программный_модуль" 
+
+Модуль_скрейпера --> Программный_модуль
+Модуль_скедулера --> Программный_модуль
+
+rectangle Система {
+usecase case1 as "Определить состав библиотеки"
+usecase case2 as "Получить актуальные данные"
+usecase case3 as "Обновить библиотеку пользователя"
+usecase case4 as "Обновить внутреннюю библиотеку"
+ Пользователь_системы -- case1
+ Пользователь_системы -- case3
+ (case4) .> (case2) : include
+ (case3) .> (case4) : include
+ (case3) .> (case1) : extends
+ case2 -- Модуль_скрейпера 
+ case3 -- Модуль_скедулера
+ case4 -- Модуль_скедулера
+}
+@enduml

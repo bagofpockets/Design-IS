@@ -1,0 +1,29 @@
+@startuml
+skinparam monochrome true
+
+actor Скедулер as user
+participant "FastAPI сервер" as cli
+participant "Целевой интернет-ресурс" as serv
+database "База данных" as base
+
+user -> cli: Отправить запрос на обновление
+activate cli
+cli -> base: Запросить необходимые для обновления данные
+activate base
+base --> cli
+deactivate base
+cli -> serv: Получить актуальные данные
+activate serv
+serv --> cli
+deactivate serv
+cli -> base: Запросить обновление данных в БД
+activate base
+base --> cli
+deactivate base
+cli -> cli: Обновить файлы
+activate cli
+deactivate cli
+cli -> user
+deactivate cli
+
+@enduml

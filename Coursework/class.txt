@@ -1,0 +1,35 @@
+@startuml
+skinparam class {
+	BackgroundColor White
+	ArrowColor Black
+	BorderColor Black
+}
+hide circle
+hide methods
+
+class Автор {
+   IDАвтора
+   Имя
+   URL
+}
+class Книга {
+   Название
+   Описание
+   ПутьКОбложке
+   ПутьКФайлу
+   URLПоследнейГлавы
+   ТипИсточника
+}
+class Тег {
+   IDТега
+   Название
+}
+class Жанр {
+   IDЖанра
+   Название
+}
+
+Автор *-- Книга
+Книга o-- Тег
+Книга o-- Жанр
+@enduml

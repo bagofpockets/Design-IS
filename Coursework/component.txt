@@ -1,0 +1,22 @@
+@startuml
+skinparam BackgroundColor transparent
+skinparam componentStyle uml2
+
+component "Work Station" {
+   component "Platform Windows" {
+      [Автоматизированная система управления библиотекой] - [cont2]
+}
+}
+component "Server" {
+   component "Docker Enviroment" {
+      component "Docker Container" as cont1{
+         [Сервер PostgreSQL]
+}
+      component "Docker Container" as cont2{
+         [Сервер FastAPI]
+}
+      [Сервер FastAPI] - [Сервер PostgreSQL]
+}
+}
+
+@enduml
